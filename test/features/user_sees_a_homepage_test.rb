@@ -8,6 +8,13 @@ class HomepageTest < CapybaraTestCase
     assert_equal 200, page.status_code
   end
 
+  def test_user_can_see_about_page
+    visit '/about'
+
+    assert page.has_content?("I'm Alex")
+    assert_equal 200, page.status_code
+  end
+
   def test_user_can_see_an_error_page
     visit '/sleepy'
 
